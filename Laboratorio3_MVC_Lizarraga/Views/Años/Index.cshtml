@@ -1,0 +1,87 @@
+﻿@model Laboratorio3_MVC_Lizarraga.Models.ClsBisiesto
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+
+        <h1>Calculo año bisiesto</h1><br />
+        @using (Html.BeginForm("Index", "Años", FormMethod.Post))
+        {
+            <p>
+                @Html.LabelFor(model => model.añoInicial, "Año Inicial")
+                @Html.EditorFor(model => model.añoInicial)
+            </p>
+
+            <p>
+                @Html.LabelFor(model => model.añoFinal, "Año Final")
+                @Html.EditorFor(model => model.añoFinal)
+            </p>
+
+            <a>
+                @Html.Label("Bisisestos")
+                @Html.RadioButtonFor(model => model.verCalculo, "B")&nbsp;&nbsp;&nbsp;
+            </a>
+
+            <a>
+                @Html.Label("No Bisisestos")
+                @Html.RadioButtonFor(model => model.verCalculo, "N")&nbsp;&nbsp;&nbsp;
+            </a>
+
+            <a>
+                @Html.Label("Ambos")
+                @Html.RadioButtonFor(model => model.verCalculo, "A")&nbsp;&nbsp;&nbsp;
+            </a><br /><br />
+
+            <button>Iniciar Calculo</button>
+        }
+        <br />
+
+        @if (Model.añoInicial > 0 && Model.añoFinal > 0)
+        {
+            <hr />
+            <h3>Año Inicial => @Model.añoInicial</h3>
+            <h3>Año Final => @Model.añoInicial</h3>
+            <hr />
+
+            for (int i = Model.añoInicial; i <= Model.añoFinal; i++)
+            {
+                if (i % 4 == 0 && i % 100 != 0 || i % 400 == 0)
+                {
+                    if (Model.verCalculo == 1)
+                    {
+                        <h4>Años Bisisestos => @i</h4>
+                    }
+                }
+                else
+                {
+                    if (Model.verCalculo == 2)
+                    {
+                        <h4>Años no Bisisestos => @i</h4>
+                    }
+                }
+
+                if (Model.verCalculo == 3)
+                {
+                    if (i % 4 == 0 && i % 100 != 0 || i % 400 == 0)
+                    {
+                        <h4>@i => Bisiesto</h4>
+                    }
+                    else
+                    {
+                        <h4>@i => No Bisiesto</h4>
+                    }
+                }
+            }
+        }
+    </div>
+</body>
+</html>

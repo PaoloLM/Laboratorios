@@ -1,0 +1,73 @@
+﻿@model Laboratorio4_MVC_Lizarraga.Models.ClsEncuestas
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h1>Encuesta</h1>
+        <br /><br />
+
+        <form id="frm1" method="post">
+            <div>
+                <dt><b>@Html.DisplayNameFor(model => model.Titulo)</b></dt>
+                <dd>@Html.DisplayNameFor(model => model.Titulo)</dd>
+            </div>   
+            
+            <br />
+
+            <table>
+                <tr>
+                    <th>Alternativa</th>
+                    <th>Cantidad</th>
+                    <th>Porcentaje</th>
+                    <th>Barra</th>
+                </tr>
+
+                @for (int i = 0; i < Model.Alternativa.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            <input type="radio" name="index" value="@(i)" />
+                            @(Model.Alternativa[i].Titulo)
+                        </td>
+
+                        <td>
+                            @(Model.Alternativa[i].Cantidad)
+                        </td>
+
+                        <td>
+                            @(Model.Alternativa[i].Porcentaje) %
+                        </td>
+
+                        <td>
+                            <progress value="@(Model.Alternativa[i].Porcentaje)" max="100"></progress>
+                        </td>
+                    </tr>
+                }
+
+                <tr>
+                    <th>Total de Votos</th>
+                    <th>@Html.DisplayFor(model => model.CantidadTotal)</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+
+                <tr>
+                    <th>&nbsp;</th>
+                    <th><input type="submit" value="Votar" /> </th>
+                    <th></th>
+                    <th>&nbsp;</th>
+                </tr>
+            </table>            
+        </form>
+    </div>
+</body>
+</html>

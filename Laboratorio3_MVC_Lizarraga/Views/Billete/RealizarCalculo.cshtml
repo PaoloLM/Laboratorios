@@ -1,0 +1,42 @@
+﻿@model Laboratorio3_MVC_Lizarraga.Models.ClsBillete
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RealizarCalculo</title>
+</head>
+<body>
+    <div>
+        <h1>Dispensado de billetes</h1><br />
+        @using (Html.BeginForm("RealizarCalculo", "Billete", FormMethod.Post))
+        {
+            <p>
+                @Html.LabelFor(model => model.monto, "Monto total S/.")
+                @Html.EditorFor(model => model.monto)
+                @Html.ValidationMessageFor(model => model.monto)
+            </p>
+
+            <input type="submit" value="Calcular" />
+        }
+    </div>
+
+    @if (Model.monto > 0)
+    {
+        <div>
+            <hr />
+            <p><b>Monto Real : </b><strong>@Model.monto</strong></p>
+            <hr />
+            <p><b>Billete de S/.100 : </b><strong>@Model.b100</strong></p>
+            <p><b>Billete de S/.50 : </b><strong>@Model.b50</strong></p>
+            <p><b>Billete de S/.20 : </b><strong>@Model.b20</strong></p>
+            <p><b>Billete de S/.10 : </b><strong>@Model.b10</strong></p>
+        </div>
+    }
+
+</body>
+</html>

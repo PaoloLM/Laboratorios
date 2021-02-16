@@ -1,0 +1,37 @@
+﻿@model Laboratorio3_MVC_Lizarraga.Models.ClsJuegp
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h1>Juego de la Ruleta</h1><br />
+        @using (Html.BeginForm("Index", "Juego", FormMethod.Post))
+        {
+            <button>Iniciar Juego</button>
+
+            if (Session["sesionUser"] == null)
+            {
+                Session["sesionUser"] = 1;
+                <h3>? - ? - ?</h3>
+            }
+            else
+            {
+                int contador = Convert.ToInt32(Session["sesionUser"]);
+                contador++;
+                Session["sesionUser"] = contador;
+                <h3>@Model.numero1 - @Model.numero2 - @Model.numero3</h3>
+            }
+        }
+        <br />
+        @Model.resultado
+    </div>
+</body>
+</html>

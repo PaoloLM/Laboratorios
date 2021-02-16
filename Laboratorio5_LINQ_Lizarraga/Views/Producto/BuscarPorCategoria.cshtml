@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Laboratorio5_LINQ_Lizarraga.Models.PRODUCTO>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BuscarPorCategoria</title>
+</head>
+<body>
+    <div>
+        <center>
+            <h1>Listar Productos</h1><br />
+
+            @using (Html.BeginForm("BuscarPorCategoria", "Producto", FormMethod.Post))
+            {
+                <div>
+                    @Html.Label("Buscar:")
+                    <br />
+                    @Html.Editor("buscar")
+                </div>
+
+                <div>
+                    <input type="submit" value="Buscar" />
+                </div>
+            }
+
+            <table border="1px">
+
+                <tr>
+                    <td>ID</td>
+                    <td>Categoria</td>
+                    <td>Producto</td>
+                    <td>Descripcion</td>
+                    <td>Precio</td>
+                    <td>Stock</td>
+                    <td>IMPORTANCIA</td>
+                </tr>
+
+                @foreach (var producto in Model)
+                {
+                    <tr>
+                        <td>@(producto.IDPRODUCTO)</td>
+                        <td>@(producto.CATEGORIA.NOMBRE)</td>
+                        <td>@(producto.NOMBRE)</td>
+                        <td>@(producto.DESCRIPCION)</td>
+                        <td>@(producto.PRECIO)</td>
+                        <td>@(producto.STOCK)</td>
+                        <td>@(producto.IMPORTANCIA)</td>
+                    </tr>
+                }
+
+            </table>
+        </center>
+    </div>
+</body>
+</html>

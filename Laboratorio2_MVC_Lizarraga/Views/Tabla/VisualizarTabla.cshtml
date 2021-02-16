@@ -1,0 +1,26 @@
+﻿@model Laboratorio2_MVC_Lizarraga.Models.ClsTabla
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VisualizarTabla</title>
+</head>
+<body>
+    <div> 
+        <h1>Tabla de multiplicar</h1><br />
+
+        @for (int i = 0; i <= 12; i++)
+        {
+            var m = 0;
+            m = Convert.ToInt32(Model.numero * i);
+
+            <div>@Model.numero x @i = @m</div>
+        }
+    </div>
+</body>
+</html>

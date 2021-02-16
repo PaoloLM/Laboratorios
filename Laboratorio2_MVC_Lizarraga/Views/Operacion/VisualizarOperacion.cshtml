@@ -1,0 +1,26 @@
+﻿@model Laboratorio2_MVC_Lizarraga.Models.ClsOperacion
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VisualizarOperacion</title>
+</head>
+<body>
+    <div>
+        <h1>Visualizar Operacion</h1>
+        <br /><br />
+        <label>Numero 1: </label> @Model.numero1 <br />
+        <label>Numero 2: </label> @Model.numero2 <br />
+        <label>Operacion: </label> @Model.tipo <br />
+        <br /><br />
+        <hr />
+        <br /><br />
+        <label>Resultado: </label> @Model.resultado
+    </div>
+</body>
+</html>

@@ -1,0 +1,275 @@
+﻿@model Laboratorio4_MVC_Lizarraga.Models.ClsQuiz
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width" />
+    <title>Paolo Lizarraga Web2 MVC</title>
+</head>
+<body style="margin : 50px">
+    
+    <div>
+        <form id="PreguntasLizarraga" method="post">
+
+            <div class="container">
+                <section class="row">
+                    <div class="col-md-12">
+                        <h3>Ejercicio encargado numero 1 - Lizarraga</h3>
+                        <h5>Responde primero la pregunta 1 y sucesivamente - Please</h5><br />
+                        <p></p>
+                    </div>
+                </section>
+
+                <section class="row">
+                    <div class="col-md-6">
+                        <p>1. @Model.Pregunta1</p>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="radio">
+                            <input type="radio" name="index" value="@(0)" /> @(Model.Questions1[0].Titulo)
+                        </label>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="radio">
+                            <input type="radio" name="index" value="@(1)" /> @(Model.Questions1[1].Titulo)
+                        </label>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="radio">
+                            <input type="radio" name="index" value="@(2)" /> @(Model.Questions1[2].Titulo)
+                        </label>
+                    </div>
+                </section>
+
+                <section class="row">
+                    <div class="col-md-6">
+                        <p>2. @Model.Pregunta2</p>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="radio">
+                            <input type="radio" name="index" value="@(3)" /> @(Model.Questions2[0].Titulo)
+                        </label>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="radio">
+                            <input type="radio" name="index" value="@(4)" /> @(Model.Questions2[1].Titulo)
+                        </label>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="radio">
+                            <input type="radio" name="index" value="@(5)" /> @(Model.Questions2[2].Titulo)
+                        </label>
+                    </div>
+                </section>
+
+                <section class="row">
+                    <div class="col-md-6">
+                        <p>3. @Model.Pregunta3</p>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="radio">
+                            <input type="radio" name="index" value="@(6)" /> @(Model.Questions3[0].Titulo)
+                        </label>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="radio">
+                            <input type="radio" name="index" value="@(7)" /> @(Model.Questions3[1].Titulo)
+                        </label>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="radio">
+                            <input type="radio" name="index" value="@(8)" /> @(Model.Questions3[2].Titulo)
+                        </label>
+                    </div>
+                </section>
+
+                <section class="row">
+                    <div class="col-md-12">
+                        <input type="submit" value="Votar" class="btn btn-success" />
+                        <input type="reset" value="Limpiar" class="btn btn-danger" />
+                    </div>
+                </section>
+
+            </div>
+
+
+        </form> <br />
+
+
+        <div class="container">
+            <section class="row">
+                <div class="col-md-12">
+                    <h3>Tabla de datos de la respuesta</h3>
+                    <hr />
+
+                    <h4>Pregunta 1 - @Model.Pregunta1</h4>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Respuesta</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Porcentaje</th>
+                                <th scope="col">Barra</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @for (int i = 0; i < Model.Questions1.Count; i++)
+                            {
+                                <tr>
+                                    <td>
+                                        @(Model.Questions1[i].Titulo)
+                                    </td>
+
+                                    <td>
+                                        @(Model.Questions1[i].Cantidad)
+                                    </td>
+
+                                    <td>
+                                        @(Model.Questions1[i].Porcentaje) %
+                                    </td>
+
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@(Model.Questions1[i].Porcentaje)" aria-valuemin="0" aria-valuemax="100" style="width: @(Model.Questions1[i].Porcentaje)%"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>Total de intentos</td>
+                                <td>@Model.CantidadTotal1 intentos</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Pregunta 2 - @Model.Pregunta2</h4>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Respuesta</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Porcentaje</th>
+                                <th scope="col">Barra</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @for (int i = 0; i < Model.Questions2.Count; i++)
+                            {
+                                <tr>
+                                    <td>
+                                        @(Model.Questions2[i].Titulo)
+                                    </td>
+
+                                    <td>
+                                        @(Model.Questions2[i].Cantidad)
+                                    </td>
+
+                                    <td>
+                                        @(Model.Questions2[i].Porcentaje) %
+                                    </td>
+
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@(Model.Questions2[i].Porcentaje)" aria-valuemin="0" aria-valuemax="100" style="width: @(Model.Questions2[i].Porcentaje)%"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>Total de intentos</td>
+                                <td>@Model.CantidadTotal2 intentos</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Pregunta 3 - @Model.Pregunta3</h4>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Respuesta</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Porcentaje</th>
+                                <th scope="col">Barra</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @for (int i = 0; i < Model.Questions3.Count; i++)
+                            {
+                                <tr>
+                                    <td>
+                                        @(Model.Questions3[i].Titulo)
+                                    </td>
+
+                                    <td>
+                                        @(Model.Questions3[i].Cantidad)
+                                    </td>
+
+                                    <td>
+                                        @(Model.Questions3[i].Porcentaje) %
+                                    </td>
+
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@(Model.Questions3[i].Porcentaje)" aria-valuemin="0" aria-valuemax="100" style="width: @(Model.Questions3[i].Porcentaje)%"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>Total de intentos</td>
+                                <td>@Model.CantidadTotal3 intentos</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+        
+    </div>
+
+</body>
+</html>

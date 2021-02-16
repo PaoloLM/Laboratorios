@@ -1,0 +1,111 @@
+﻿@model Laboratorio4_MVC_Lizarraga.Models.ClsEncuesta
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h1>Encuesta</h1>
+        <br /><br />
+        @using (Html.BeginForm("Index", "Encuesta", FormMethod.Post))
+        {
+            <p>Elegiste el @Request["Lenguaje"]</p>
+            <table>
+                <tr>
+                    <td>Lenguajes</td>
+                    <td>Votos</td>
+                    <td>Porcentaje</td>
+                    <td>Barra</td>
+                </tr>
+
+                <!--BLOQUE PARA LENGUAJE 1-->
+                <tr>
+                    <td>
+                        <label>@Html.RadioButton("Lenguaje", "Lenguaje 1")@ViewBag.Alternativa1</label>
+                    </td>
+                    <td>
+                        <p><label>@Session["cantidadVotos1"]</label></p>
+                    </td>
+                    <td>
+                        <p><label>@Session["porcentajeC1"]</label></p>
+                    </td>
+                    <td>
+                        <progress value=@Session["vp1"] max="100.00"></progress>
+                    </td>
+                </tr>
+
+                <!--BLOQUE PARA LENGUAJE 2-->
+                <tr>
+                    <td>
+                        <label>@Html.RadioButton("Lenguaje", "Lenguaje 2")@ViewBag.Alternativa2</label>
+                    </td>
+                    <td>
+                        <p><label>@Session["cantidadVotos2"]</label></p>
+                    </td>
+                    <td>
+                        <p><label>@Session["porcentajeC2"]</label></p>
+                    </td>
+                    <td>
+                        <progress value=@Session["vp2"] max="100.00"></progress>
+                    </td>
+                </tr>
+
+                <!--BLOQUE PARA LENGUAJE 3-->
+                <tr>
+                    <td>
+                        <label>@Html.RadioButton("Lenguaje", "Lenguaje 3")@ViewData["Alternativa3"]</label>
+                    </td>
+                    <td>
+                        <p><label>@Session["cantidadVotos3"]</label></p>
+                    </td>
+                    <td>
+                        <p><label>@Session["porcentajeC3"]</label></p>
+                    </td>
+                    <td>
+                        <progress value=@Session["vp3"] max="100.00"></progress>
+                    </td>
+                </tr>
+
+                <!--BLOQUE PARA LENGUAJE 4-->
+                <tr>
+                    <td>
+                        <label>@Html.RadioButton("Lenguaje", "Lenguaje 4")@ViewBag.Alternativa4</label>
+                    </td>
+                    <td>
+                        <p><label>@Session["cantidadVotos4"]</label></p>
+                    </td>
+                    <td>
+                        <p><label>@Session["porcentajeC4"]</label></p>
+                    </td>
+                    <td>
+                        <progress value=@Session["vp4"] max="100.00"></progress>
+                    </td>
+                </tr>
+
+                <!--BLOQUE PARA TOTALES-->
+                <tr>
+                    <td>Total de Votos:</td>
+                    <td><p><label>@Session["totalvotos"]</label></p></td>
+                    <td><p><label>@Session["totalporcentaje"]</label></p></td>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <!--BLOQUE PARA BOTONES-->
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><button>Calcular</button></td>
+                    <td><p><label>@Session["totalporcentaje"]</label></p></td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>

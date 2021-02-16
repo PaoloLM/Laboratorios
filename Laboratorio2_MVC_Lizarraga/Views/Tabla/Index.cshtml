@@ -1,0 +1,27 @@
+﻿@model Laboratorio2_MVC_Lizarraga.Models.ClsTabla
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h1>Tabla de Multiplicar</h1><br />
+        @using (Html.BeginForm("VisualizarTabla", "Tabla", FormMethod.Post))
+        {
+            <p>
+                @Html.Label("Ingrese Numero:")
+                @Html.EditorFor(model => model.numero, null, new {@class = "form-group"})
+            </p>
+
+            <input type="submit" value="Calcular" />
+        }
+    </div>
+</body>
+</html>

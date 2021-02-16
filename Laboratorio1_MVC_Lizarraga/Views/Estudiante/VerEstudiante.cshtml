@@ -1,0 +1,24 @@
+﻿@model Laboratorio1_MVC_Lizarraga.Models.ClsEstudiante
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VerEstudiante</title>
+</head>
+<body>
+    <h1>Datos del Estudiante</h1><br />
+    <div>
+        <b>Nombre: </b>@Model.nombre <br />
+        <b>Apellido: </b>@Model.apellido <br />
+        <b>Edad: </b>@Model.edad <br />
+        <b>Talla: </b>@Model.talla <br />
+        <b>Sexo: </b>@Model.sexo <br />
+        <b>Fecha y Hora: </b>@DateTime.Now.ToString() <br />
+    </div>
+</body>
+</html>

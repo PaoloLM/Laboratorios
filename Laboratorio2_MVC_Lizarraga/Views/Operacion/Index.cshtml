@@ -1,0 +1,44 @@
+﻿@model Laboratorio2_MVC_Lizarraga.Models.ClsOperacion
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h1>Operaciones Aritmeticas</h1><br />
+        @using (Html.BeginForm("VisualizarOperacion", "Operacion", FormMethod.Post))
+        {
+            <p>
+                @Html.Label("Numero 1:")
+                @Html.EditorFor(model => model.numero1)
+            </p>
+
+            <p>
+                @Html.Label("Numero 2:")
+                @Html.EditorFor(model => model.numero2)
+            </p>        
+
+            <p>
+                @Html.Label("Tipo:")
+                @Html.DropDownListFor(model => model.tipo, new List<SelectListItem>
+                {
+                    new SelectListItem() { Text = "Suma", Value = "S"},
+                    new SelectListItem() { Text = "Resta", Value = "R"},
+                    new SelectListItem() { Text = "Multiplicacion", Value = "M"},
+                    new SelectListItem() { Text = "Division", Value = "D"}
+                })
+            </p>
+
+
+            <input type="submit" value="Calcular" />
+        }
+    </div>
+</body>
+</html>

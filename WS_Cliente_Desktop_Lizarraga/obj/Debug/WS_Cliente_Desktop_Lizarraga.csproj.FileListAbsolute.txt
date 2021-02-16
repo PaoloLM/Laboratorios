@@ -1,0 +1,10 @@
+D:\2. Web\WS_Cliente_Desktop_Lizarraga\bin\Debug\WS_Cliente_Desktop_Lizarraga.exe.config
+D:\2. Web\WS_Cliente_Desktop_Lizarraga\bin\Debug\WS_Cliente_Desktop_Lizarraga.exe
+D:\2. Web\WS_Cliente_Desktop_Lizarraga\bin\Debug\WS_Cliente_Desktop_Lizarraga.pdb
+D:\2. Web\WS_Cliente_Desktop_Lizarraga\obj\Debug\WS_Cliente_Desktop_Lizarraga.csprojAssemblyReference.cache
+D:\2. Web\WS_Cliente_Desktop_Lizarraga\obj\Debug\WS_Cliente_Desktop_Lizarraga.Form1.resources
+D:\2. Web\WS_Cliente_Desktop_Lizarraga\obj\Debug\WS_Cliente_Desktop_Lizarraga.Properties.Resources.resources
+D:\2. Web\WS_Cliente_Desktop_Lizarraga\obj\Debug\WS_Cliente_Desktop_Lizarraga.csproj.GenerateResource.cache
+D:\2. Web\WS_Cliente_Desktop_Lizarraga\obj\Debug\WS_Cliente_Desktop_Lizarraga.csproj.CoreCompileInputs.cache
+D:\2. Web\WS_Cliente_Desktop_Lizarraga\obj\Debug\WS_Cliente_Desktop_Lizarraga.exe
+D:\2. Web\WS_Cliente_Desktop_Lizarraga\obj\Debug\WS_Cliente_Desktop_Lizarraga.pdb

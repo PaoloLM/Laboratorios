@@ -1,0 +1,85 @@
+﻿@model Laboratorio_LINQ_Arrays_MVC_Lizarraga.Models.ClsAlumno
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Index", "Alumno", FormMethod.Post))
+        {
+            <h1>Listar Alumnos</h1>
+            <br />
+            @Html.TextBoxFor(m => m.busqueda)
+            <br />
+            <input type="submit" value="Buscar" />
+            <br />
+        }
+    </div>
+
+    <div>
+        <br />
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Nota</th>
+                <th>Condicion</th>
+            </tr>
+
+            @{ int id = 1;}
+            @for (int i = 0; i < Model.nombreA.Count(); i++)
+            {
+                <tr>
+                    <td>@(id++)</td>
+                    <td>@Model.nombreA[i]</td>
+
+                    <td>
+                        @if (Model.notaA[i] >= 10.5)
+                        {
+                            <span style="color: blue;">@Model.notaA[i]</span>
+                        } else { <span style="color: firebrick;">@Model.notaA[i]</span>}
+                    </td>
+
+                    <td>
+                        @if (Model.notaA[i] >= 10.5)
+                        {
+                            <span style="color: blue;">Aprobado</span>
+                        }
+                        else
+                        { <span style="color: firebrick;">Desaprobado</span>}
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+
+</body>
+</html>
